@@ -7,12 +7,13 @@ namespace WizardApi
 {
     public sealed class Program
     {
-        public static async Task Main(string[] args)
+        public static async Task Main()
         {
             var client = new WizardClient();
             var service = new WizardService(client);
 
-            var t = await client.GetWizardAsync(new Guid("c52273ca-29f7-426f-924b-217634110c09"));
+            var ingredient = await client.GetIngredientAsync("not guid");
+            var wizard = await client.GetWizardAsync(new Guid("de736ba2-3a67-4bce-b451-f40bac39fd03"));
         }
     }
 }

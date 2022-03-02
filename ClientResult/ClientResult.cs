@@ -1,12 +1,12 @@
 ﻿namespace WizardApi.ClientResult
 {
-    public abstract class ClientResult
+    public class ClientResult
     {
         public int StatusCode { get; }
 
         public ClientError Error { get; }
 
-        protected ClientResult(int statusCode, ClientError error = null)
+        public ClientResult(int statusCode, ClientError error = null)
         {
             this.StatusCode = statusCode;
             this.Error = error;

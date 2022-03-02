@@ -44,10 +44,12 @@ namespace WizardApi.Client
             return await this.GetResultAsync<Ingredient>($"ingredients/{id}");
         }
 
-        public async Task SendFeedback(FeedbackInfo feedbackInfo)
+        public async Task<ClientResult.ClientResult> SendFeedback(FeedbackInfo feedbackInfo)
         {
             var content = JsonSerializer.Serialize(feedbackInfo);
-            await this.httpClient.PostAsync("feedback", new StringContent(content));
+            var responseMessage = await this.httpClient.PostAsync("feedback", new StringContent(content));
+
+            return new ClientResult.ClientResult((int)responseMessage.StatusCode);
         }
 
         private async Task<ClientResult<T>> GetResultAsync<T>(string url)

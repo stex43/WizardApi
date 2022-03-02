@@ -17,6 +17,6 @@ namespace WizardApi.Client
 
         Task<ClientResult<Ingredient>> GetIngredientAsync(string id);
 
-        Task SendFeedback(FeedbackInfo feedbackInfo);
+        Task<ClientResult.ClientResult> SendFeedback(FeedbackInfo feedbackInfo);
     }
 }
