@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
-using WizardApi.ClientResult;
+using WizardApi.ClientResults;
 using WizardApi.Models;
 
 namespace WizardApi.Client
@@ -44,12 +44,12 @@ namespace WizardApi.Client
             return await this.GetResultAsync<Ingredient>($"ingredients/{id}");
         }
 
-        public async Task<ClientResult.ClientResult> SendFeedback(FeedbackInfo feedbackInfo)
+        public async Task<ClientResult> SendFeedback(FeedbackInfo feedbackInfo)
         {
             var content = JsonSerializer.Serialize(feedbackInfo);
             var responseMessage = await this.httpClient.PostAsync("feedback", new StringContent(content));
 
-            return new ClientResult.ClientResult((int)responseMessage.StatusCode);
+            return new ClientResult((int)responseMessage.StatusCode);
         }
 
         private async Task<ClientResult<T>> GetResultAsync<T>(string url)

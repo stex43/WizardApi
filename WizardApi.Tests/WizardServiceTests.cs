@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
 using WizardApi.Client;
-using WizardApi.ClientResult;
+using WizardApi.ClientResults;
 using WizardApi.Service;
 
 namespace WizardApi.Tests

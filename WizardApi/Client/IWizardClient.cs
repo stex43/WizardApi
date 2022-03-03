@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using WizardApi.ClientResult;
+using WizardApi.ClientResults;
 using WizardApi.Models;
 
 namespace WizardApi.Client
@@ -17,6 +17,6 @@ namespace WizardApi.Client
 
         Task<ClientResult<Ingredient>> GetIngredientAsync(string id);
 
-        Task<ClientResult.ClientResult> SendFeedback(FeedbackInfo feedbackInfo);
+        Task<ClientResult> SendFeedback(FeedbackInfo feedbackInfo);
     }
 }
